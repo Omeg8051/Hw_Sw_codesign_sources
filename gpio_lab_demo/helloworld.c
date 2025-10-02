@@ -1,5 +1,5 @@
 /******************************************************************************
-* This software(strictly the source file at which this claim is written)
+* This software(strictly the source file which this claim is written within)
 * can be freely modified and re-distributed WITH NO WARRENTY.
 * By Omeg on east0987987@gmail.com.
 * 
