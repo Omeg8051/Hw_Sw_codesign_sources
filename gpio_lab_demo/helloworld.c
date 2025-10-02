@@ -1,6 +1,7 @@
 /******************************************************************************
-* Copyright (C) 2023 Advanced Micro Devices, Inc. All Rights Reserved.
-* SPDX-License-Identifier: MIT
+* This software(strictly this source file) can be freely modified and distributed at NO WARRENTY.
+* By Omeg on east0987987@gmail.com.
+* 
 ******************************************************************************/
 /**
  * Those who successfully finishing the lab experiment gets to play the game.
