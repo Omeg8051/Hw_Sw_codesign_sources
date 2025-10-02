@@ -41,6 +41,10 @@
 #include "sleep.h"
 
 unsigned int debounced_read(XGpio *in,int channel){
+    //I know this is a lazy ahh debounce implementation.
+    //My argument is: Try coding at 4 a.m. without the
+    //help of C*atG*T. Yeah, you understand what I was
+    //thinking now?
     unsigned int i = XGpio_DiscreteRead(in, channel);
     usleep(10000);
     return i;
