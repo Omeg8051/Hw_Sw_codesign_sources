@@ -45,6 +45,9 @@ unsigned int debounced_read(XGpio *in,int channel){
     //My argument is: Try coding at 4 a.m. without the
     //help of C*atG*T. Yeah, you understand what I was
     //thinking now?
+    
+    //This software can be modified anyway. Try making
+    //something that my 4 a.m. self didn't get to do.
     unsigned int i = XGpio_DiscreteRead(in, channel);
     usleep(10000);
     return i;
