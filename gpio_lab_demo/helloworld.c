@@ -1,6 +1,8 @@
 /******************************************************************************
-* Copyright (C) 2023 Advanced Micro Devices, Inc. All Rights Reserved.
-* SPDX-License-Identifier: MIT
+* This software(strictly the source file which this claim is written within)
+* can be freely modified and re-distributed WITH NO WARRENTY.
+* By Omeg on east0987987@gmail.com.
+* 
 ******************************************************************************/
 /**
  * Those who successfully finishing the lab experiment gets to play the game.
@@ -39,6 +41,13 @@
 #include "sleep.h"
 
 unsigned int debounced_read(XGpio *in,int channel){
+    //I know this is a lazy ahh debounce implementation.
+    //My argument is: Try coding at 4 a.m. without the
+    //help of C*atG*T. Yeah, you understand what I was
+    //thinking now?
+    
+    //This software can be modified anyway. Try making
+    //something that my 4 a.m. self didn't get to do.
     unsigned int i = XGpio_DiscreteRead(in, channel);
     usleep(10000);
     return i;
