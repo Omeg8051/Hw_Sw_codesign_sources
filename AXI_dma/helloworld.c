@@ -31,29 +31,37 @@ char dma_in[64];
 
 int main()
 {   
+    // Initialize the DMA engine
     dma_cfg = XAxiDma_LookupConfig(XPAR_AXI_DMA_0_BASEADDR);
     XAxiDma_CfgInitialize(&dma,dma_cfg);
 
+    // Flush the cache to ensure data coherency
     Xil_DCacheFlushRange(dma_out, 64);
 	Xil_DCacheFlushRange(dma_in, 64);
 
+    // Start the DMA transfer to write data
     XAxiDma_SimpleTransfer(&dma,dma_out,64,XAXIDMA_DMA_TO_DEVICE);
     print("Writing to DMA buffer\n\r");
     print("Successfully ran Hello World application\r\n");
 
+    // Wait for the transfer to complete
     while(XAxiDma_Busy(&dma,XAXIDMA_DMA_TO_DEVICE)){
         print(".");
         usleep(1000000);
     }
+
+    // Start the DMA transfer to read back the data
     print("\r\nReading from DMA buffer\r\n");
     XAxiDma_SimpleTransfer(&dma,dma_in,64,XAXIDMA_DEVICE_TO_DMA);
 
+    // Wait for the transfer to complete
     while(XAxiDma_Busy(&dma,XAXIDMA_DEVICE_TO_DMA)){
         print(".");
         usleep(1000000);
     }
-
     print(".\r\n");
+
+    // Verify the data
     int same = 1;
     for (size_t i = 0; i < 64; i++)
     {
@@ -62,6 +70,7 @@ int main()
             break;
         }
     }
+    // Print the result
     if(same){
         print("DMA input match output\r\n");
     } else {
